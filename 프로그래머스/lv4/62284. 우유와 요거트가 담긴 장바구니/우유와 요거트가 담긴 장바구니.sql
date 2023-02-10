@@ -1,0 +1,6 @@
+-- 코드를 입력하세요
+SELECT CART_ID
+FROM CART_PRODUCTS
+WHERE NAME = "Yogurt" or NAME = "Milk"
+GROUP BY CART_ID
+HAVING COUNT(distinct NAME) = 2
