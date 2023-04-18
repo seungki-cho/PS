@@ -19,8 +19,8 @@ func bfs(_ i: Int, _ j: Int) {
     visited[i][j] = true
     var removal = Array(repeating: Array(repeating: 0, count: M), count: N)
     var i = 0
-    while i < q.count {
-        let (x, y) = q[i]
+    while !q.isEmpty {
+        let (x, y) = q.removeLast()
         var removeCount = 0
         
         for (nx, ny) in zip(ix, iy) {
@@ -49,8 +49,8 @@ while true {
     visited = Array(repeating: Array(repeating: false, count: M), count: N)
     var fflag = false
     
-    for i in 0..<N {
-        for j in 0..<M where li[i][j] != 0 && !visited[i][j]{
+    for i in 0..<N where !fflag {
+        for j in 0..<M where li[i][j] != 0 && !visited[i][j] && !fflag {
             if 처음으로땅을밟았습니까 {
                 처음으로땅을밟았습니까 = false
                 bfs(i, j)
