@@ -1,0 +1,1 @@
+print(Array(readLine()!)[Int(readLine()!)!-1])
