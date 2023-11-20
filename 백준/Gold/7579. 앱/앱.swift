@@ -9,7 +9,7 @@ var nap = Array(repeating: 0, count: K+1)
 
 for i in 0..<N {
     let (weight, cost) = (weights[i], costs[i])
-    for j in (1...K).reversed() where cost <= j{
+    for j in (0...K).reversed() where cost <= j{
         nap[j] = max(nap[j], nap[j-cost] + weight)
     }
 }
