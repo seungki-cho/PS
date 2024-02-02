@@ -2,33 +2,20 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static class Queue<T> {
-        private LinkedList<T> q = new LinkedList<>();
+    static int N;
 
-        int size() {
-            return q.size();
-        }
-        void enqueue(T t) {
-            q.addLast(t);
-        }
-        T dequeue() {
-            return q.removeFirst();
-        }
-    }
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        Queue<Integer> q = new Queue<>();
-
+        N = Integer.parseInt(st.nextToken());
+        LinkedList<Integer> li = new LinkedList<>();
         for (int i = 1; i <= N; i++) {
-            q.enqueue(i);
+            li.add(i);
         }
-        while (q.size() != 1) {
-            q.dequeue();
-            q.enqueue(q.dequeue());
+        while (li.size() != 1) {
+            li.removeFirst();
+            li.addLast(li.removeFirst());
         }
-        System.out.println(q.dequeue());
+        System.out.println(li.get(0));
     }
 }
-// asdfasdfasdasdfasdfasd
