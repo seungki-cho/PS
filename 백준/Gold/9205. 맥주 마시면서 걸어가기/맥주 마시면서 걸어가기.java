@@ -1,8 +1,7 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.security.Key;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
+// 메모리 18332KB	시간 252ms
 public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,10 +18,12 @@ public class Main {
                 for (int j = i; j < N; j++)
                     li[i][j] = li[j][i] = pairs[i].canGo(pairs[j]);
 
-            for (int k = 0; k < N; k++)
-                for (int i = 0; i < N; i++)
+            for (int k = 0; k < N; k++) 
+                for (int i = 0; i < N; i++) {
+                    if (k == i) continue;
                     for (int j = 0; j < N; j++)
                         li[i][j] |= li[i][k] && li[k][j];
+                }
 
             System.out.println(li[0][N-1] ? "happy" : "sad");
         }
