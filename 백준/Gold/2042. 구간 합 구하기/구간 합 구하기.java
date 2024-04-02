@@ -3,14 +3,12 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+// 	메모리 109148KB	시간 508ms
 public class Main {
     static long[] tree;
 
     static void init(long[] li) {
-        int treeSize = 1;
-        while (li.length >= treeSize) {
-            treeSize *= 2;
-        }
+        int treeSize = li.length + 1;
         tree = new long[treeSize+1];
 
         for (int i = 1; i <= li.length; i++) {
@@ -59,7 +57,6 @@ public class Main {
             li[i] = Long.parseLong(br.readLine());
         }
         init(li);
-
         for (int i = 0; i < M + K; i++) {
             st = new StringTokenizer(br.readLine());
             long command = Integer.parseInt(st.nextToken());
