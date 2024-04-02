@@ -57,6 +57,7 @@ public class Main {
             li[i] = Long.parseLong(br.readLine());
         }
         init(li);
+
         for (int i = 0; i < M + K; i++) {
             st = new StringTokenizer(br.readLine());
             long command = Integer.parseInt(st.nextToken());
@@ -66,8 +67,7 @@ public class Main {
             if (command == SUBSUM) {
                 sb.append(subSum(from, (int)to)).append("\n");
             } else {
-                update(from, to - li[from-1]);
-                li[from-1] = to;
+                update(from, to - subSum(from, from));
             }
         }
         System.out.println(sb);
