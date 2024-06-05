@@ -25,7 +25,7 @@ public class Main {
                 int w = Integer.parseInt(st.nextToken());
                 edges.add(new Pair(s, e, -w));
             }
-            int INF = 111_111_111;
+            int INF = 0;
             int[] dis = new int[N];
             Arrays.fill(dis, INF);
 
